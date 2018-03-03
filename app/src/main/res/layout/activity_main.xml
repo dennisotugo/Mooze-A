@@ -1,102 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context="com.bananas_and_trees.mooze.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/Button"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background"
-        android:onClick="but"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/Button4" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="33"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/Button2"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background"
-        android:onClick="but6"
-        android:layout_alignParentBottom="true" />
+            <!-- list of subviews -->
+            <Button
+                android:id="@+id/Button1"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="false"
+                android:layout_centerVertical="false"
+                android:layout_margin="5dp"
+                android:layout_weight="50"
+                android:background="@drawable/background"
+                android:onClick="but1" />
 
-    <Button
-        android:id="@+id/Button3"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="false"
-        android:layout_centerInParent="false"
-        android:layout_centerVertical="false"
-        android:layout_toEndOf="@+id/Button5"
-        android:background="@drawable/background"
-        android:onClick="but3" />
+            <Button
+                android:id="@+id/Button4"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="5dp"
+                android:layout_weight="50"
+                android:background="@drawable/background"
+                android:onClick="but4" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/Button4"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/cbackground"
-        android:onClick="but4" />
 
-    <Button
-        android:id="@+id/Button5"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="false"
-        android:layout_centerVertical="true"
-        android:background="@drawable/background"
-        android:onClick="but1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_weight="33"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/Button6"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background"
-        android:onClick="but7"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+            <!-- list of subviews -->
 
-    <Button
-        android:id="@+id/Button7"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background"
-        android:onClick="but2"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+            <Button
+                android:id="@+id/Button3"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="false"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:layout_weight="33"
+                android:background="@drawable/background"
+                android:onClick="but3" />
 
-    <Button
-        android:id="@+id/Button8"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background"
-        android:onClick="but5"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
 
-    <Button
-        android:id="@+id/Button9"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background"
-        android:onClick="but8"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/Button4" />
+            <Button
+                android:id="@+id/Button2"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:layout_weight="33"
+                android:background="@drawable/cbackground"
+                android:onClick="but2" />
+
+            <Button
+                android:id="@+id/Button5"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:layout_weight="33"
+                android:background="@drawable/background"
+                android:onClick="but5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="33"
+            android:orientation="horizontal">
+
+            <!-- list of subviews -->
+            <Button
+                android:id="@+id/Button"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="5dp"
+                android:layout_weight="50"
+                android:background="@drawable/background"
+                android:onClick="but" />
+
+
+            <Button
+                android:id="@+id/Button6"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"
+                android:layout_weight="50"
+                android:background="@drawable/background"
+                android:onClick="but6" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
+

@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Mooze</string>
-
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="slide_1_title">Focus More</string>
+    <string name="slide_1_desc">Increase your Performance and extend your Focus time</string>
+    <string name="slide_2_title">Relieves Stress </string>
+    <string name="slide_2_desc">The ambience sounds keep you levelled and centred.</string>
+    <string name="slide_3_title">Mood Enhancer</string>
+    <string name="slide_3_desc">Get more done and feel more positive with Mooze playing in the background while you work</string>
 </resources>
 
