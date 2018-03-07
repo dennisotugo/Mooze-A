@@ -1,11 +1,81 @@
+# Sets up to run the Android build script per the Travis CI documentation.
+# Executes the script ./gradlew build connectedCheck, unless overridden by
+# script test command, e.g., script: ./gradlew connectedAndroidTest
 language: android
+
+# sudo required is used to install the lynx text-based web browser for dump .html to logs
+sudo: required
+
+# Configure the build to use Oracle JDK 8, which is required to compile for Android API 24 and newer
+jdk:
+  - oraclejdk8
+
+# Install Android SDK components
 android:
   components:
-    - tools # to get the new `repository-11.xml`
-    - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
+    # Use the latest revision of Android SDK Tools
     - platform-tools
-    - build-tools-26.0.1
-    - android-26
+    - tools
 
-script:
-   - ./gradlew build connectedCheck
+    # The BuildTools version used by your project
+    - build-tools-24.0.2
+
+    # The SDK version used to compile your project
+    - android-24
+
+    # Additional components
+    #- extra-google-google_play_services
+    #- extra-google-m2repository
+    - extra-android-support
+    - extra-android-m2repository
+    #- addon-google_apis-google-24
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-android-24
+    #- sys-img-x86-android-17
+
+before_script:
+  # Create and start emulator
+  - echo no | android create avd --force -n test -t android-24 --abi armeabi-v7a
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+
+  # Unlock the screen
+  - adb shell input keyevent 82 &
+
+  # Clear and capture logcat
+  - adb logcat -c &
+  - adb logcat > myLogCat.log &
+  #- adb -e logcat *:W | tee logcat.log > /dev/null 2>&1 &
+
+
+# Overiding the default test command script to get more output
+#script: ./gradlew build connectedCheck --info
+
+
+#after_failure:
+
+after_script:
+  # - echo 'FAILURE'
+  # Check apt configuration: http://docs.travis-ci.com/user/ci-environment/#apt-configuration
+  # Use the lynx text-based browser to convert .html files to .log files
+  - sudo apt-get install -qq lynx
+  #- export OUTPUT_DIR=${TRAVIS_BUILD_DIR}/build/outputs/
+  - export OUTPUT_DIR=file:///home/travis/build/emxsys/android-worldwind-explorer/explorer/build/outputs/
+  - export REPORT_DIR=file:///home/travis/build/emxsys/android-worldwind-explorer/explorer/build/reports/
+  - lynx --dump ${OUTPUT_DIR}lint-results-debug.html > myLintDebug.log
+  - lynx --dump ${REPORT_DIR}androidTests/connected/index.html > myConnectedDevice.log
+
+  # Concatenate the html->log files to the output
+  - for file in *.log; do echo "$file"; echo "====================="; cat "$file"; done || true
+
+before_cache:
+  # Use the caching configuration per the Travis CI documentation
+  # See https://docs.travis-ci.com/user/languages/android#Caching
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+- $HOME/.gradle/wrapper/
