@@ -1,5 +1,6 @@
 # Mooze-A
-[![Build Status](https://travis-ci.org/bananas-and-trees/Mooze-A?branch=master)](https://travis-ci.org/bananas-and-trees/Mooze-A)
+
+[![Build Status](https://travis-ci.org/bananas-and-trees/Mooze-A.svg?branch=master)](https://travis-ci.org/bananas-and-trees/Mooze-A)
 
 Mooze Android Port 🍋
 
