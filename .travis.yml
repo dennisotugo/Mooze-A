@@ -1,29 +1,31 @@
-sudo: false
-
 language: android
-jdk: oraclejdk8
+
+jdk:
+  - oraclejdk8
+
+env:
+  global:
+    # install timeout in minutes (2 minutes by default)
+    - ADB_INSTALL_TIMEOUT=8
 
 android:
   components:
-  - platform-tools
-  - tools
-  - build-tools-26.0.2
-  - android-18
+    # use the latest revision of Android SDK Tools
+    - platform-tools
+    - tools
 
-before_install:
-- chmod +x gradlew
+    # The BuildTools version used
+    - build-tools-24.0.2
 
-script:
-- "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
-
-notifications:
-  email: true
+    # The SDK version used
+    - android-24
 
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
+
+script:
+- ./gradlew --info assembleRelease
